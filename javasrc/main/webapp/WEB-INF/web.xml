@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         id="fuzion" version="3.0">
+    <display-name>fuzion</display-name>
+    <description>fuzion</description>
+
+    <context-param>
+        <param-name>defaultSystemCode</param-name>
+        <param-value>RIB</param-value>
+    </context-param>
+
+    <!--<context-param>-->
+        <!--<param-name>contextConfigLocation</param-name>-->
+        <!--<param-value>-->
+            <!--/WEB-INF/spring/*-context.xml,-->
+            <!--/WEB-INF/spring/*-dao.xml,-->
+            <!--/WEB-INF/spring/*-web.xml-->
+        <!--</param-value>-->
+    <!--</context-param>-->
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/spring/*-context.xml</param-value>
+    </context-param>
+
+    <!-- listeners -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    <listener>
+        <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+    </listener>
+
+    <!--<listener>-->
+        <!--<listener-class>org.springframework.security.web.session.HttpSessionEventPublisher</listener-class>-->
+    <!--</listener>-->
+
+    <!--
+    <listener>
+        <listener-class>org.hdiv.listener.InitListener</listener-class>
+    </listener>
+    -->
+
+    <!-- filters -->
+    <!--<filter>-->
+        <!--<filter-name>springSecurityFilterChain</filter-name>-->
+        <!--<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>-->
+    <!--</filter>-->
+
+    <!-- filter mappings -->
+    <!--<filter-mapping>-->
+        <!--<filter-name>springSecurityFilterChain</filter-name>-->
+        <!--<url-pattern>/*</url-pattern>-->
+    <!--</filter-mapping>-->
+
+    <!-- servlets -->
+    <!--<servlet>-->
+        <!--<servlet-name>startupServlet</servlet-name>-->
+        <!--<servlet-class>com.fuzion.core.startup.StartupServlet</servlet-class>-->
+        <!--<load-on-startup>1</load-on-startup>-->
+    <!--</servlet>-->
+
+    <servlet>
+        <servlet-name>spring</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+
+    <!--<servlet>-->
+        <!--<servlet-name>CaptchaServlet</servlet-name>-->
+        <!--<servlet-class>com.fuzion.component.security.web.servlet.CaptchaServlet</servlet-class>-->
+        <!--<init-param>-->
+            <!--<param-name>captcha-width</param-name>-->
+            <!--<param-value>180</param-value>-->
+        <!--</init-param>-->
+        <!--<init-param>-->
+            <!--<param-name>captcha-height</param-name>-->
+            <!--<param-value>50</param-value>-->
+        <!--</init-param>-->
+        <!--<load-on-startup>4</load-on-startup>-->
+    <!--</servlet>-->
+
+	<!--WEB-SERVICES-START-->
+    <!--<servlet>-->
+        <!--<servlet-name>CXFServlet</servlet-name>-->
+        <!--<servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>-->
+        <!--&lt;!&ndash;UNCOMMENT-FOR-FO-BUILD-Only-START-->
+        <!--<init-param>-->
+            <!--<param-name>hide-service-list-page</param-name>-->
+            <!--<param-value>true</param-value>-->
+        <!--</init-param>-->
+        <!--UNCOMMENT-FOR-FO-BUILD-Only-END&ndash;&gt;-->
+        <!--<load-on-startup>5</load-on-startup>-->
+    <!--</servlet>-->
+    <!--WEB-SERVICES-END-->
+
+	<!-- Obsolete: migrated to GreenEarth webservice -->
+    <!-- servlet>
+        <servlet-name>EStatementDownloadServlet</servlet-name>
+        <servlet-class>com.fuzion.gateway.estatement.web.servlet.EStatementDownloadServlet</servlet-class>
+        <init-param>
+            <param-name>encrypt</param-name>
+            <param-value>false</param-value>
+        </init-param>
+    </servlet-->
+
+    <!--<servlet>-->
+        <!--<servlet-name>PrintServlet</servlet-name>-->
+        <!--<servlet-class>com.fuzion.ibank.common.web.servlet.PrintServlet</servlet-class>-->
+        <!--<init-param>-->
+            <!--<param-name>contentSize</param-name>-->
+            <!--<param-value>20000</param-value>-->
+        <!--</init-param>        -->
+    <!--</servlet>    -->
+    <!---->
+    <!--<servlet>-->
+		<!--<servlet-name>PdfServlet</servlet-name>-->
+		<!--<servlet-class>com.fuzion.ibank.common.web.servlet.PdfServlet</servlet-class>-->
+		<!--<init-param>-->
+			<!--<param-name>contentSize</param-name>-->
+			<!--<param-value>20000</param-value>-->
+		<!--</init-param>-->
+	<!--</servlet>-->
+	<!---->
+	<!--<servlet>-->
+		<!--<servlet-name>EWillServlet</servlet-name>-->
+		<!--<servlet-class>com.fuzion.ibank.customer.web.servlet.EWillServlet</servlet-class>-->
+		<!--<init-param>-->
+			<!--<param-name>contentSize</param-name>-->
+			<!--<param-value>20000</param-value>-->
+		<!--</init-param>-->
+	<!--</servlet>-->
+    <!---->
+    <!--<servlet>-->
+        <!--<servlet-name>NewImageServlet</servlet-name>-->
+        <!--<servlet-class>com.fuzion.ibank.common.web.servlet.NewImageServlet</servlet-class>-->
+    <!--</servlet>-->
+    <!---->
+    <!--<servlet>-->
+        <!--<servlet-name>CurrentImageServlet</servlet-name>-->
+        <!--<servlet-class>com.fuzion.ibank.common.web.servlet.CurrentImageServlet</servlet-class>-->
+    <!--</servlet>-->
+    <!---->
+    <!--<servlet>-->
+        <!--<servlet-name>ReportDownloadServlet</servlet-name>-->
+        <!--<servlet-class>com.fuzion.ibank.report.web.servlet.ReportDownloadServlet</servlet-class>-->
+    <!--</servlet>-->
+    <!---->
+    <!--<servlet>-->
+        <!--<servlet-name>ECOReportDownloadServlet</servlet-name>-->
+        <!--<servlet-class>com.fuzion.ecomm.report.web.servlet.ReportDownloadServlet</servlet-class>-->
+    <!--</servlet>-->
+
+    <!--<servlet>-->
+        <!--<servlet-name>SMSDeliveryReportAckServlet</servlet-name>-->
+        <!--<servlet-class>com.fuzion.component.notification.web.servlet.SMSDeliveryReportAckServlet</servlet-class>-->
+        <!--<init-param>-->
+            <!--<param-name>aggregatorName</param-name>-->
+            <!--<param-value>INFOBIP</param-value>-->
+        <!--</init-param>-->
+        <!--<load-on-startup>10</load-on-startup>-->
+    <!--</servlet>-->
+    <!---->
+    <!--<servlet>-->
+        <!--<servlet-name>FPXDirectServlet</servlet-name>-->
+        <!--<servlet-class>com.fuzion.ibank.common.web.servlet.FpxDirectServlet</servlet-class>-->
+    <!--</servlet>-->
+    <!---->
+    <!--<servlet>-->
+        <!--<servlet-name>FPXIndirectServlet</servlet-name>-->
+        <!--<servlet-class>com.fuzion.ibank.common.web.servlet.FpxIndirectServlet</servlet-class>-->
+    <!--</servlet>-->
+    <!---->
+    <!--<servlet>-->
+        <!--<servlet-name>ECOMerchantResponseServlet</servlet-name>-->
+        <!--<servlet-class>com.fuzion.ecomm.transaction.web.servlet.ECOMerchantResponseServlet</servlet-class>-->
+    <!--</servlet>-->
+
+    <!-- servlet mappings -->
+    <servlet-mapping>
+        <servlet-name>spring</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>CaptchaServlet</servlet-name>-->
+        <!--<url-pattern>/img/captcha.jpg</url-pattern>-->
+    <!--</servlet-mapping>-->
+
+	<!--&lt;!&ndash;WEB-SERVICES-START&ndash;&gt;-->
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>CXFServlet</servlet-name>-->
+        <!--<url-pattern>/services/*</url-pattern>-->
+    <!--</servlet-mapping>-->
+    <!--&lt;!&ndash;WEB-SERVICES-END&ndash;&gt;-->
+
+	<!--&lt;!&ndash; Obsolete: migrated to GE webservice &ndash;&gt;-->
+    <!--&lt;!&ndash; servlet-mapping>-->
+        <!--<servlet-name>EStatementDownloadServlet</servlet-name>-->
+        <!--<url-pattern>/servlet/estmt</url-pattern>-->
+    <!--</servlet-mapping&ndash;&gt;-->
+    <!---->
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>PrintServlet</servlet-name>-->
+        <!--<url-pattern>/servlet/print</url-pattern>-->
+    <!--</servlet-mapping>    -->
+    <!---->
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>PdfServlet</servlet-name>-->
+        <!--<url-pattern>/servlet/pdf</url-pattern>-->
+    <!--</servlet-mapping>    -->
+    <!---->
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>NewImageServlet</servlet-name>-->
+        <!--<url-pattern>/servlet/newImage</url-pattern>-->
+    <!--</servlet-mapping>-->
+    <!---->
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>CurrentImageServlet</servlet-name>-->
+        <!--<url-pattern>/servlet/currentImage</url-pattern>-->
+    <!--</servlet-mapping>-->
+    <!---->
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>ReportDownloadServlet</servlet-name>-->
+        <!--<url-pattern>/servlet/report</url-pattern>-->
+    <!--</servlet-mapping>-->
+
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>SMSDeliveryReportAckServlet</servlet-name>-->
+        <!--<url-pattern>/servlet/smsDeliveryReport</url-pattern>-->
+    <!--</servlet-mapping>-->
+    <!---->
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>EWillServlet</servlet-name>-->
+        <!--<url-pattern>/servlet/ewill</url-pattern>-->
+    <!--</servlet-mapping>-->
+    <!---->
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>ECOReportDownloadServlet</servlet-name>-->
+        <!--<url-pattern>/servlet/ecoreport</url-pattern>-->
+    <!--</servlet-mapping>-->
+
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>FPXDirectServlet</servlet-name>-->
+        <!--<url-pattern>/servlet/fpxDirect</url-pattern>-->
+    <!--</servlet-mapping>-->
+
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>FPXIndirectServlet</servlet-name>-->
+        <!--<url-pattern>/servlet/fpxIndirect</url-pattern>-->
+    <!--</servlet-mapping>-->
+    <!---->
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>ECOMerchantResponseServlet</servlet-name>-->
+        <!--<url-pattern>/servlet/ecoMerchantResponse</url-pattern>-->
+    <!--</servlet-mapping>-->
+
+    <!-- session timeout -->
+    <session-config>
+        <session-timeout>10</session-timeout>
+        <tracking-mode>COOKIE</tracking-mode>
+        <!-- ensure jsessionid is not appended to url -->
+    </session-config>
+
+    <!-- error pages -->
+    <error-page>
+        <exception-type>java.lang.Throwable</exception-type>
+        <location>/error.html</location>
+    </error-page>
+
+    <error-page>
+        <error-code>500</error-code>
+        <location>/error.html</location>
+    </error-page>
+
+    <error-page>
+        <error-code>501</error-code>
+        <location>/login.jsp</location>
+    </error-page>
+
+    <error-page>
+        <error-code>503</error-code>
+        <location>/error.html</location>
+    </error-page>
+
+    <error-page>
+        <error-code>404</error-code>
+        <location>/page.html</location>
+    </error-page>
+
+    <error-page>
+        <error-code>403</error-code>
+        <location>/error.html</location>
+    </error-page>
+
+    <error-page>
+        <error-code>401</error-code>
+        <location>/error.html</location>
+    </error-page>
+
+    <!-- welcome files -->
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+
+</web-app>
